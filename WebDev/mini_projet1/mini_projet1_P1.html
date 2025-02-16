@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(231, 217, 245);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 40px;
+            }
+            #question{
+                font-weight: 900;
+                text-align: center;
+                font-size: 30px;
+                color: rgb(182, 115, 245);
+            }
+            #question_text{
+                font-size: 20px;
+                color: rgb(52, 21, 81);
+            }
+            #start{
+                color: white;
+                background-color: rgb(182, 115, 245);
+                width: 300px;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 30px;
+            }
+            .align{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+            #next{
+                color: white;
+                background-color: rgb(182, 115, 245);
+                width: 150px;
+                height: 25px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 15px;
+                margin-top: 10px;
+            }
+            #complete{
+                color: rgb(115, 76, 151);
+                font-size: 30px;
+            }
+            #timer{
+                margin: 30px;
+                border: 3px solid rgb(163, 33, 163);
+                border-radius: 4px;
+                color: rgb(72, 27, 114);
+                padding: 20px;
+            }
+            #score{
+                color: rgb(72, 27, 114);
+                font-weight: 900;
+                font-size: 40px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <form id="myform">
+            <button id="start" class="btn mt-2 button"  onclick="start_fct(event);">Start Quizz</button>
+        </form>
+    </body>
+
+    <script>
+        let myform = document.getElementById("myform");
+        let index_Q=0;
+
+        let time_interval;
+        let timeRemaining = 30;
+        let score=0;
+
+        const quizData = [
+            { question: "What is the capital of France?", options: ["Madrid", "Paris", "Rome"], answer: "Paris" },
+            { question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter"], answer: "Mars" },
+            { question: "What is 5 + 3?", options: ["6", "8", "10"], answer: "8" },
+            { question: "Which is the largest ocean?", options: ["Atlantic", "Indian", "Pacific"], answer: "Pacific" },
+            { question: "What is H2O commonly known as?", options: ["Oxygen", "Hydrogen", "Water"], answer: "Water" }
+        ];
+        function start_fct(event){
+            event.preventDefault();
+            display_question(0);
+        }
+        function scoring(i){
+            for(x of quizData[i].options){
+                if (document.getElementById(x).checked){
+                    if(document.getElementById(x).value == quizData[i].answer){
+                        score++;
+                    }
+                }
+            }
+        }
+
+        function next_fct(){
+            clearInterval(time_interval);
+            scoring(index_Q);
+            if (index_Q >= quizData.length-1) {
+                window.scrollTo(0, 0);
+                myform.innerHTML = `<p id='score'>Your score is : ${score} / 5</p>`;
+                myform.innerHTML += "<h2 id='complete'>Quiz Completed!</h2>";
+            }
+            else{
+                index_Q++;
+                display_question(index_Q);
+            }
+        }
+
+        function start_timer(timerElement){
+            timeRemaining = 30; 
+            timerElement.innerHTML = `Time remaining: ${timeRemaining}s`;
+            
+            time_interval = setInterval(() => {
+                timeRemaining--;
+                timerElement.innerHTML = `Time remaining: ${timeRemaining}s`;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(time_interval);
+                    next_fct();  
+                }
+            }, 1000);
+        }
+
+        function display_question(i){
+            myform.innerHTML = "";
+
+            let question = document.createElement("p");
+            question.id="question";
+            question.innerHTML=`Question ${i+1}`;
+
+            let question_text = document.createElement("p");
+            question_text.id ="question_text";
+            question_text.innerHTML=quizData[i].question;
+
+            let Q_A = document.createElement("div");
+            Q_A.id="Q_A";
+
+            for(let x of quizData[i].options){
+                let option= document.createElement("div");
+
+                let input = document.createElement("input");
+                input.type="radio";
+                input.name=`question${i+1}`;
+                input.id=x;
+                input.value=x;
+
+                let label = document.createElement("label");
+                label.setAttribute("for", x);
+                label.innerHTML=x;
+
+                option.appendChild(input);
+                option.appendChild(label);
+                Q_A.appendChild(option);
+            }
+
+            let next = document.createElement("button");
+            next.innerHTML = "Next";
+            next.id="next";
+            next.onclick = () => next_fct();
+
+            let timer = document.createElement("p");
+            timer.id = "timer";
+            timer.innerHTML = `Time remaining: ${timeRemaining}s`;
+
+            myform.appendChild(timer);
+            myform.appendChild(question);
+            myform.appendChild(question_text);
+            myform.appendChild(Q_A);
+            myform.appendChild(next);
+
+            start_timer(timer);
+        }
+        
+        
+
+
+        
+    </script>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(231, 217, 245);
+                padding: auto;
+                padding-top: 40px;
+            }
+            #heading{
+                background-color: rgb(88, 7, 88);
+                border-radius: 4px;
+                color: white;
+                font-size: 20px;
+                font-weight: 900;
+                text-align: center;
+                padding: 10px;
+                width: 675px;
+            }
+            .inputs{
+                border-radius: 4px;
+                padding: 10px;
+                width: 700px;
+            }
+            #generate_btn{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                padding: 20px;
+                width: 700px;
+                margin-top: 30px;
+                background-color: rgb(88, 7, 88);
+                color: white;
+                cursor: pointer;
+            }
+            .column{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+            .center{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .question1{
+                font-weight: 900;
+                text-align: center;
+                font-size: 30px;
+                color: rgb(182, 115, 245);
+            }
+            .question_text{
+                font-size: 20px;
+                color: rgb(52, 21, 81);
+            }
+            #valider{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                padding: 20px;
+                width: 700px;
+                margin-top: 30px;
+                background-color: rgb(88, 7, 88);
+                color: white;
+                cursor: pointer;
+            }
+            #valid_div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #score{
+                text-align: center;
+                font-size: 40px;
+                color: purple;
+            }
+            #complete{
+                text-align: center;
+                font-size: 60px;
+                color: purple;
+            }
+            
+        </style>
+       
+    </head>
+
+    <body>
+        <div id="quiz_container">
+
+            <div class="center">
+                <p id="heading" class="column">Quizz Configuration</p>
+            </div>
+            <div class="center">
+                <form>
+                    <div class="column">
+                        <label for="Q_num">Number of questions:</label>
+                        <input type="number" name="Q_num" id="Q_num" class="inputs" style="width: 675px;" value="10" max="50" min="1">
+                    </div>
+
+                    <div class="column">
+                        <label for="Category">Select Category:</label>
+                        <select id="category" name="Category" class="inputs">
+                            <option value="any">Any Category</option>
+                            <option value="9">General Knowledge</option>
+                            <option value="10">Entertainment: Books</option>
+                            <option value="11">Entertainment: Film</option>
+                            <option value="12">Entertainment: Music</option>
+                            <option value="13">Entertainment: Musicals & Theatres</option>
+                            <option value="14">Entertainment: Television</option>
+                            <option value="15">Entertainment: Video Games</option>
+                            <option value="16">Entertainment: Board Games</option>
+                            <option value="17">Science & Nature</option>
+                            <option value="18">Science: Computers</option>
+                            <option value="19">Science: Mathematics</option>
+                            <option value="20">Mythology</option>
+                            <option value="21">Sports</option>
+                            <option value="22">Geography</option>
+                            <option value="23">History</option>
+                            <option value="24">Politics</option>
+                            <option value="25">Art</option>
+                            <option value="26">Celebrities</option>
+                            <option value="27">Animals</option>
+                            <option value="28">Vehicles</option>
+                            <option value="29">Entertainment: Comics</option>
+                            <option value="30">Science: Gadgets</option>
+                            <option value="31">Entertainment: Japanese Anime & Manga</option>
+                            <option value="32">Entertainment: Cartoon & Animations</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="column">
+                        <label for="Difficulty">Select Difficulty:</label>
+                        <select name="Difficulty" id="difficulty" class="inputs">
+                            <option value="any">Any Difficulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="column">
+                        <label for="Type">Select Type:</label>
+                        <select name="Type" class="inputs" id="type">
+                            <option value="any">Any Type</option>
+                            <option value="multiple">Multiple choice</option>
+                            <option value="boolean">True/False</option>
+                        </select>
+                    </div>
+
+                    <div class="column">
+                        <label for="Encoding">Select Encoding:</label>
+                        <select name="Encoding" class="inputs" id="encode">
+                            <option value="default">Default Encoding</option>
+                            <option value="urlLegacy">Legacy URL Encoding</option>
+                            <option value="url13986">URL Encoding(RFC 3986)</option>
+                            <option value="base64">Based64 Encoding</option>
+                        </select>
+                    </div>
+
+                    <button id="generate_btn" class="column btn mt-2 button" onclick="generate_fct(event)">GENERATE QUIZZ</button>
+
+                </form>
+            </div>
+
+        </div>
+    </body>
+
+    <script>
+        let numQuestions;
+        let result=[];
+        
+        function generate_fct(event){
+            event.preventDefault();
+
+            numQuestions = document.getElementById("Q_num").value;
+            let category = document.getElementById("category").value;
+            let difficulty = document.getElementById("difficulty").value.toLowerCase();
+            let type = document.getElementById("type").value.toLowerCase();
+            let encode = document.getElementById("encode").value.toLowerCase();
+
+            let apiurl = `https://opentdb.com/api.php?amount=${numQuestions}`;
+
+            if(category!="any"){
+                apiurl +=`&category=${category}`;
+            };
+            if(difficulty!="any"){
+                apiurl +=`&difficulty=${difficulty}`;
+            };
+            if(type!="any"){
+                apiurl +=`&type=${type}`;
+            };
+            if(encode!="default"){
+                apiurl +=`&encode=${encode}`;
+            }
+            
+            fetch(apiurl)
+            .then(response => response.json())
+            .then(data => {
+                    result = data.results;
+                    display_Q(result)})
+            .catch(error => console.error("Erreur lors de la récupération des questions :", error));
+        };
+
+        function options_fct(incorr_op, corr_op) {
+            let arr = incorr_op.concat([corr_op]);
+
+            for (let i = arr.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1)); 
+                [arr[i], arr[j]] = [arr[j], arr[i]]; 
+            }
+            return arr;
+        }
+
+        function check_answers(questions){
+            let score=0;
+            let len=questions.length;
+            for(let i=0; i<len; i++){
+                let selectedOption = document.querySelector(`input[name="question${i+1}"]:checked`);
+                if(selectedOption && selectedOption.value == questions[i].correct_answer){
+                    score++;
+                }
+            };
+            
+            let quiz_container= document.getElementById("quiz_container");
+            quiz_container.innerHTML="";
+
+            let final = document.createElement("div");
+
+            let complete=document.createElement("p");
+            complete.id="complete";
+            complete.innerHTML="QUIZ COMPLETED!";
+
+            let scoring = document.createElement("p");
+            scoring.id="score";
+            scoring.innerHTML=`Your Score is: ${score} / ${numQuestions}!`;
+            
+            final.appendChild(scoring);
+            final.appendChild(complete);
+            quiz_container.appendChild(final);
+        };
+
+        function display_Q(questions){
+            let quiz_container= document.getElementById("quiz_container");
+            quiz_container.innerHTML="";
+
+            let i=0;
+            let myform = document.createElement("form");
+            myform.id="myform";
+            for(question_dictio of questions){
+
+                let question1 = document.createElement("p");
+                question1.id=`question${i+1}`;
+                question1.innerHTML=`Question ${i+1}`;
+                question1.className="question1";
+
+                let question_text = document.createElement("p");
+                question_text.id =`question_text${i+1}`;
+                question_text.innerHTML=question_dictio.question;
+                question_text.className="question_text";
+
+                let Q_A = document.createElement("div");
+                Q_A.id=`Q_A${i+1}`;
+
+                let options=[];
+                if(question_dictio.type=="multiple"){
+                    options=options_fct(question_dictio.incorrect_answers, question_dictio.correct_answer);
+                }
+                else{
+                    options.push("true");
+                    options.push("false");
+                }
+
+                for(let x of options){
+                    let option= document.createElement("div");
+
+                    let input = document.createElement("input");
+                    input.type="radio";
+                    input.name=`question${i+1}`;
+                    input.id=x;
+                    input.value=x;
+
+                    let label = document.createElement("label");
+                    label.setAttribute("for", x);
+                    label.innerHTML=x;
+
+                    option.appendChild(input);
+                    option.appendChild(label);
+                    Q_A.appendChild(option);
+                }
+
+                myform.appendChild(question1);
+                myform.appendChild(question_text);
+                myform.appendChild(Q_A);
+                i++;
+            }
+
+            let valid_div = document.createElement("div");
+            valid_div.id="valid_div";
+            let valid = document.createElement("button");
+            valid.innerHTML="Valider";
+            valid.type="button";
+            valid.id="valider";
+            valid.addEventListener("click", function(event) {
+                event.preventDefault(); 
+                check_answers(result);
+            });
+            valid_div.appendChild(valid);
+            myform.appendChild(valid_div);
+            quiz_container.appendChild(myform);
+
+        };
+
+    
+    </script>
+</html>
