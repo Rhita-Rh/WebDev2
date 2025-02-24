@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Projet 1-38</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body{
+            background: #f2bcce;
+        }
+        .container{
+            max-width: 500px;
+            margin-top: 50px;
+        }
+        .todos {
+            background: #4b2d37;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .button{
+            background-color: #4b2d37;
+            border-radius: 4px;
+            color: white;
+        }
+        .rebutton{
+            background-color: #d47e9b;
+            border-radius: 4px;
+            color: rgb(1, 0, 0);
+        }
+        #counting{
+            background-color: #4b2d37;
+            border-radius: 4px;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="TaskList">
+        <div class="container">
+    
+            <header class="text-center text-light my-4">
+                <h1 class="mb-4">Todo List</h1>
+            </header>
+        
+            <div class=""
+                v-for="task in filtering"
+            >
+                <div class="todos mx-auto text-light">
+                    <p>
+                        {{task.id}}. {{task.title}}: {{task.description}}<span v-if="(task.completed)" style="color: rgb(104, 227, 95);">Completed!</span>
+                        <span v-else style="color: rgb(227, 95, 95);">Not completed yet!</span>
+                    </p>
+
+                    <button class="button" v-show="!task.completed" @click="mark(task)">Completed</button>
+                </div>
+                <br>
+                
+                
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <button class="button" @click="filtertask(null)" v-bind:class="{rebutton: filter===null}">All Tasks</button>
+                <button class="button" @click="filtertask(false)" v-bind:class="{rebutton: filter===false}">Tasks to do</button>
+                <button class="button" @click="filtertask(true)" v-bind:class="{rebutton: filter===true}">Tasks done!</button>
+            </div>
+            <br>
+            <div id="counting">
+                <p>number of Tasks is: {{num_task}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    filter:null,
+                    complete:true,
+                    tasks: [
+                        {
+                        "id": 1,
+                        "title": "Faire les courses",
+                        "description": "Acheter des légumes et du lait.",
+                        "completed": false
+                        },
+                        {
+                        "id": 2,
+                        "title": "Faire du sport",
+                        "description": "Courir pendant 30 minutes.",
+                        "completed": true
+                        },
+                        {
+                        "id": 3,
+                        "title": "Réviser pour l'examen",
+                        "description": "Relire le chapitre 5 du manuel.",
+                        "completed": false
+                        }
+                    ]
+                }
+            },
+            computed:{
+                filtering(){
+                    if (this.filter === null) {
+                        return this.tasks;
+                    }
+                    return this.tasks.filter(
+                        task=>task.completed==this.filter
+                    );
+                },
+                num_task(){
+                    return this.filtering.length;
+                }
+
+            },
+            methods:{
+                filtertask(statu){
+                    this.filter=statu;
+                },
+                mark(task){
+                    task.completed = true;  
+                }
+            }
+        });
+
+        app.mount('#TaskList');
+    </script>
+</body>
+
+</html>
