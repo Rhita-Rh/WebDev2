@@ -1,0 +1,203 @@
+{"pieces-autos":[
+        {
+            "id": 1,
+            "nom": "Batterie 12V",
+            "prix": 120,
+            "categorie": "Électricité",
+            "Image": "https://media.istockphoto.com/id/1160578298/photo/car-battery-on-a-white-background.jpg?s=612x612&w=is&k=20&c=rgySOKLCA_dFvvVIV4N-KfTpouelcBQiiaufQdJM6sA=",
+            "Disponible": true
+        },
+        {
+            "id": 2,
+            "nom": "Filtre à huile",
+            "prix": 15,
+            "categorie": "Filtration",
+            "Image": "https://media.istockphoto.com/id/869099252/photo/replacement-of-oil-filter.jpg?s=1024x1024&w=is&k=20&c=errji2PTTLvADV1CiR-kssi5yIQ7whzWh5Jv-o8Ov-c=",
+            "Disponible": false
+        },
+        {
+            "id": 3,
+            "nom": "Bougies d'allumage (x4)",
+            "prix": 35,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/200/300",
+            "Disponible": true
+        },
+        {
+            "id": 4,
+            "nom": "Disques de frein (x2)",
+            "prix": 80,
+            "categorie": "Freinage",
+            "Image": "https://picsum.photos/250/350",
+            "Disponible": false
+        },
+        {
+            "id": 5,
+            "nom": "Courroie de distribution",
+            "prix": 90,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/300/400",
+            "Disponible": true
+        },
+        {
+            "id": 6,
+            "nom": "Pompe à eau",
+            "prix": 70,
+            "categorie": "Refroidissement",
+            "Image": "https://picsum.photos/350/450",
+            "Disponible": true
+        },
+        {
+            "id": 7,
+            "nom": "Amortisseurs arrière (x2)",
+            "prix": 150,
+            "categorie": "Suspension",
+            "Image": "https://picsum.photos/400/500",
+            "Disponible": false
+        },
+        {
+            "id": 8,
+            "nom": "Filtre à air",
+            "prix": 20,
+            "categorie": "Filtration",
+            "Image": "https://picsum.photos/450/550",
+            "Disponible": true
+        },
+        {
+            "id": 9,
+            "nom": "Capteur ABS",
+            "prix": 50,
+            "categorie": "Sécurité",
+            "Image": "https://picsum.photos/500/600",
+            "Disponible": false
+        },
+        {
+            "id": 10,
+            "nom": "Radiateur de refroidissement",
+            "prix": 130,
+            "categorie": "Refroidissement",
+            "Image": "https://picsum.photos/500/600",
+            "Disponible": false
+        },
+        {
+            "id": 11,
+            "nom": "Alternateur",
+            "prix": 200,
+            "categorie": "Électricité",
+            "Image": "https://picsum.photos/650/750",
+            "Disponible": true
+        },
+        {
+            "id": 12,
+            "nom": "Démarreur",
+            "prix": 180,
+            "categorie": "Électricité",
+            "Image": "https://picsum.photos/700/800",
+            "Disponible": false
+        },
+        {
+            "id": 13,
+            "nom": "Kit d’embrayage",
+            "prix": 220,
+            "categorie": "Transmission",
+            "Image": "https://picsum.photos/750/850",
+            "Disponible": false
+        },
+        {
+            "id": 14,
+            "nom": "Injecteur de carburant",
+            "prix": 110,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/800/900",
+            "Disponible": true
+        },
+        {
+            "id": 15,
+            "nom": "Pompe à carburant",
+            "prix": 90,
+            "categorie": "Carburant",
+            "Image": "https://picsum.photos/850/950",
+            "Disponible": true
+        },
+        {
+            "id": 16,
+            "nom": "Capteur de pression des pneus (TPMS)",
+            "prix": 45,
+            "categorie": "Sécurité",
+            "Image": "https://picsum.photos/900/1000",
+            "Disponible": false
+        },
+        {
+            "id": 17,
+            "nom": "Rétroviseur extérieur",
+            "prix": 60,
+            "categorie": "Carrosserie",
+            "Image": "https://picsum.photos/1000/1100",
+            "Disponible": true
+        },
+        {
+            "id": 18,
+            "nom": "Échappement complet",
+            "prix": 250,
+            "categorie": "Échappement",
+            "Image": "https://picsum.photos/950/1050",
+            "Disponible": true
+        },
+        {
+            "id": 19,
+            "nom": "Vanne EGR",
+            "prix": 140,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/1050/1150",
+            "Disponible": false
+        },
+        {
+            "id": 20,
+            "nom": "Turbo",
+            "prix": 400,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/1100/1200",
+            "Disponible": false
+        },
+        {
+            "id": 21,
+            "nom": "Joint de culasse",
+            "prix": 75,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/1150/1250",
+            "Disponible": true
+        },
+        {
+            "id": 22,
+            "nom": "Boîtier de direction",
+            "prix": 300,
+            "categorie": "Direction",
+            "Image": "https://picsum.photos/1200/1300",
+            "Disponible": true
+        },
+        {
+            "id": 23,
+            "nom": "Silent bloc de suspension",
+            "prix": 35,
+            "categorie": "Suspension",
+            "Image": "https://picsum.photos/1250/1350",
+            "Disponible": true
+        },
+        {
+            "id": 24,
+            "nom": "Cardan de transmission",
+            "prix": 160,
+            "categorie": "Transmission",
+            "Image": "https://picsum.photos/1300/1400",
+            "Disponible": false
+        },
+        {
+            "id": 25,
+            "nom": "Capteur de position vilebrequin",
+            "prix": 50,
+            "categorie": "Moteur",
+            "Image": "https://picsum.photos/1350/1450",
+            "Disponible": true
+        }
+    ]
+}
