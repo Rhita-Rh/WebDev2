@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Introduction à Vue.js",
+      "body": "Vue.js est un framework progressif pour la construction d'interfaces utilisateur. Il est conçu pour être adoptable progressivement. Vue.js est un framework progressif pour la construction d'interfaces utilisateur. Il est conçu pour être adoptable progressivement. Il est facile à intégrer avec d'autres bibliothèques ou projets existants. Vue.js est également parfaitement capable de fonctionner comme un framework de développement complet pour les applications monopages. Vue.js est un framework progressif pour la construction d'interfaces utilisateur. Il est conçu pour être adoptable progressivement. Il est facile à intégrer avec d'autres bibliothèques ou projets existants. Vue.js est également parfaitement capable de fonctionner comme un framework de développement complet pour les applications monopages.",
+      "tags": [
+        "vue",
+        "javascript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Pourquoi utiliser JSON Server ?",
+      "body": "JSON Server est une bibliothèque permettant de créer une API REST fake en quelques secondes. Il est idéal pour le prototypage rapide et le développement d'applications front-end. JSON Server est une bibliothèque permettant de créer une API REST fake en quelques secondes. Il est idéal pour le prototypage rapide et le développement d'applications front-end. JSON Server est une bibliothèque permettant de créer une API REST fake en quelques secondes. Il est idéal pour le prototypage rapide et le développement d'applications front-end.",
+      "tags": [
+        "json server",
+        "api",
+        "developpement"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Les bases de JavaScript",
+      "body": "JavaScript est un langage de programmation qui permet de rendre les pages web interactives. Il est utilisé pour créer des effets dynamiques sur les pages web, gérer les événements utilisateur et communiquer avec les serveurs. JavaScript est un langage de programmation qui permet de rendre les pages web interactives. Il est utilisé pour créer des effets dynamiques sur les pages web, gérer les événements utilisateur et communiquer avec les serveurs.",
+      "tags": [
+        "javascript",
+        "langage",
+        "web"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Introduction à Node.js",
+      "body": "Node.js est un environnement d'exécution JavaScript côté serveur. Il permet d'exécuter du code JavaScript en dehors d'un navigateur. Node.js est particulièrement adapté pour construire des applications réseau rapides et évolutives.",
+      "tags": [
+        "node",
+        "javascript",
+        "backend"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Comprendre le DOM",
+      "body": "Le DOM (Document Object Model) est une interface de programmation pour les documents HTML et XML. Il représente la structure du document sous forme d'arbre, permettant aux langages de programmation d'accéder et de manipuler le contenu, la structure et le style du document.",
+      "tags": [
+        "dom",
+        "html",
+        "web"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Les promesses en JavaScript",
+      "body": "Les promesses sont un moyen de gérer les opérations asynchrones en JavaScript. Elles permettent de travailler avec des valeurs qui ne sont pas encore disponibles, en fournissant une interface pour gérer le succès ou l'échec d'une opération asynchrone.",
+      "tags": [
+        "javascript",
+        "promesses",
+        "asynchrone"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Introduction à React",
+      "body": "React est une bibliothèque JavaScript pour construire des interfaces utilisateur. Elle permet de créer des composants réutilisables et de gérer l'état de l'application de manière efficace.",
+      "tags": [
+        "react",
+        "javascript",
+        "frontend"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Comprendre le CSS Flexbox",
+      "body": "Flexbox est un modèle de mise en page CSS qui permet de concevoir des mises en page complexes et réactives. Il facilite l'alignement et la distribution d'espace entre les éléments d'une interface utilisateur.",
+      "tags": [
+        "css",
+        "flexbox",
+        "web"
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Les bases du SEO",
+      "body": "Le SEO (Search Engine Optimization) est l'ensemble des techniques visant à améliorer la visibilité d'un site web sur les moteurs de recherche. Il comprend l'optimisation du contenu, des balises HTML et des liens entrants.",
+      "tags": [
+        "seo",
+        "web",
+        "marketing"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Introduction à TypeScript",
+      "body": "TypeScript est un sur-ensemble typé de JavaScript qui compile en JavaScript pur. Il apporte des fonctionnalités telles que le typage statique, les interfaces et les classes, facilitant ainsi le développement d'applications complexes.",
+      "tags": [
+        "typescript",
+        "javascript",
+        "langage"
+      ]
+    }
+  ]
+}
